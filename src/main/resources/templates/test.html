@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<!-- thymeleafの有効化 -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!-- タグ内のTitleはオーバーライドされる　-->
+    <title th:text="${title}">Title</title>
+</head>
+<body>
+<!-- タグ内のtitleはオーバーライドされる -->
+<h1 th:text="${title}">title</h1>
+<p>This is a sample page.</p>
+</body>
+</html>
