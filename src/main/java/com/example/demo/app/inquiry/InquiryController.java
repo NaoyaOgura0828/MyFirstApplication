@@ -12,8 +12,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/inquiry")
 public class InquiryController {
 
+    /* フォームの入力値を取得する */
     @GetMapping("/form")
     public String form(InquiryForm inquiryForm, Model model) {
+        model.addAttribute("title", "Inquiry Form");
+        return "inquiry/form";
+    }
+
+    /* "戻るボタン"が押された時に入力値をフォームに戻す（form.htmlへ遷移） */
+    @PostMapping("/form")
+    public String formGoBack(InquiryForm inquiryForm, Model model) {
         model.addAttribute("title", "Inquiry Form");
         return "inquiry/form";
     }
@@ -22,12 +30,12 @@ public class InquiryController {
     public String confirm(@Validated InquiryForm inquiryForm,
                           BindingResult result,
                           Model model) {
-        /* 入力内容にエラーがあった場合はフォームに戻す（入力内容は保持） */
+        /* 入力内容にエラーがあった場合は入力値をフォームに戻す（form.htmlへ遷移） */
         if (result.hasErrors()) {
             model.addAttribute("title", "Inquiry Form");
             return "inquiry/form";
         }
-        /* 確認ページに遷移。入力内容を表示する */
+        /* 入力内容を表示する（confirm.htmlへ遷移） */
         model.addAttribute("title", "Confirm Page");
         return "inquiry/confirm";
     }
