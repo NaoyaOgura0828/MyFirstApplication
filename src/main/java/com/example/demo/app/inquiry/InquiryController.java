@@ -49,7 +49,7 @@ public class InquiryController {
                            BindingResult result,
                            Model model,
                            RedirectAttributes redirectAttributes) {
-        if(result.hasErrors()) {
+        if (result.hasErrors()) {
             model.addAttribute("title", "Inquiry Form");
             return "inquiry/form";
         }
