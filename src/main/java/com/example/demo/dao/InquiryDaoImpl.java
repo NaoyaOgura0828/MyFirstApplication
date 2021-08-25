@@ -10,11 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-@Repository
+@Repository // データベース操作クラスの宣言
 public class InquiryDaoImpl implements InquiryDao{
 
+    /* 変数の初期化 */
     private final JdbcTemplate jdbcTemplate;
 
+    /* データベース操作テンプレートの呼び出し */
     @Autowired
     public InquiryDaoImpl(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -22,11 +24,12 @@ public class InquiryDaoImpl implements InquiryDao{
 
     @Override
     public void insertInquiry(Inquiry inquiry) {
-        jdbcTemplate.update("INSERT INTO inquiry(name, email, contents, created) VALUES(?, ?, ?, ?)",
+        jdbcTemplate.update("INSERT INTO inquiry(name, email, contents, created) VALUES(?, ?, ?, ?)", // idは指定しない
                 inquiry.getName(), inquiry.getEmail(), inquiry.getContents(), inquiry.getCreated());
 
     }
 
+    /* Mapで取得したものをエンティティクラスに詰め直す */
     @Override
     public List<Inquiry> getAll() {
         String sql = "SELECT id, name, email, contents, created FROM inquiry";

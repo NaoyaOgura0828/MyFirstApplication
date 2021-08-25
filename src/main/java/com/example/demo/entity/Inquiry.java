@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 public class Inquiry {
 
+    /* データベーステーブルとの紐付け */
     private int id; // ID
     private String name; // 名前
     private String email; // Email
