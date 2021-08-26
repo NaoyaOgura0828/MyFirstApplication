@@ -12,7 +12,8 @@ public class InquiryServiceImpl implements InquiryService {
 
     private final InquiryDao dao;
 
-    @Autowired InquiryServiceImpl(InquiryDao dao) {
+    @Autowired
+    InquiryServiceImpl(InquiryDao dao) {
         this.dao = dao;
     }
 
