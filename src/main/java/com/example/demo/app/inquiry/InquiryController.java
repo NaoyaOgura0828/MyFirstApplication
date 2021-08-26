@@ -52,7 +52,7 @@ public class InquiryController {
         model.addAttribute("inquiryList", list);
         model.addAttribute("title", "Inquiry Index");
 
-        return "inquiry/index";
+        return "inquiry/index_boot";
     }
 
 
