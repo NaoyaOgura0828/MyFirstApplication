@@ -29,7 +29,7 @@ public class InquiryDaoImpl implements InquiryDao{
 
     }
 
-    /* Mapで取得したものをエンティティクラスに詰め直す */
+    /* InquiryのSQLをMapで取得し、エンティティクラスに詰め直す */
     @Override
     public List<Inquiry> getAll() {
         String sql = "SELECT id, name, email, contents, created FROM inquiry";
@@ -44,6 +44,6 @@ public class InquiryDaoImpl implements InquiryDao{
             inquiry.setCreated(((Timestamp)result.get("created")).toLocalDateTime());
             list.add(inquiry);
         }
-        return list;
+        return list; // inquiryリストへ追加する
     }
 }
